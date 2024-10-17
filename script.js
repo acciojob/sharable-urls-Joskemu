@@ -1,8 +1,11 @@
-document.getElementById("myForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const nameValue = document.getElementById("name").value; // Get the value of the input field
-    const h3Element = document.getElementById("url"); // Get the h3 element
-    h3Element.textContent = `https://localhost:8080/?name=${encodeURIComponent(nameValue)}`; // Update the text content with the query string
-});
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
 
+    const name = document.getElementById('name').value; // Get name value
+    const year = document.getElementById('year').value; // Get year value
+
+    const queryString = `?name=${encodeURIComponent(name)}&year=${encodeURIComponent(year)}`; // Construct query string
+
+    const urlElement = document.getElementById('url'); // Get h3 element
+    urlElement.textContent = `https://localhost:8080/${queryString}`; // Update h3 text content
+});
